@@ -1,0 +1,160 @@
+@import "../transparent-navbar.scss";
+@import "../variables";
+
+.install-hero {
+  .container-fluid {
+    background-image: none;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    background-repeat: no-repeat;
+    background-position: bottom 0 right 0;
+    background-size: cover;
+    border-radius: 0 !important;
+    background: #005C97;
+    background: -webkit-linear-gradient(to left, #005C97 , #363795);
+    background: linear-gradient(to left, #005C97 , #363795);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .top-header {
+      max-width: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      &--center {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.toggle-menu {
+  background: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__entry {
+    display: inline-block;
+    padding: 30px 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    &--active {
+      opacity: 1;
+      border-bottom: 2px solid $nextcloud-blue;
+    }
+  }
+}
+
+.downloads-container {
+  background: #EFEFF1;
+  width: 100%;
+  height: 100%;
+
+  .server-wrapper {
+    padding: 80px 0;
+
+    .col-lg-4 {
+      float: right;
+    }
+
+    .usefull-links {
+      margin: 30px 0;
+      background: white;
+      box-shadow: 0 4px 44px 0 rgba(0,0,0,0.02);
+      border-radius: 2px;
+      padding: 50px 40px 30px 40px;
+
+      &__title {
+        @extend .server-wrapper__download__title;
+      }
+
+      &__link {
+        font-size: 16px;
+        line-height: 24px;
+        color: #6C6C6A;
+        display: block;
+        padding: 5px 0;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        &:first-child{
+          padding-top: 50px;
+        }
+      }
+    }
+
+    &__download {
+      margin: 30px 0;
+      background: white;
+      box-shadow: 0 4px 44px 0 rgba(0,0,0,0.02);
+      border-radius: 2px;
+      padding: 50px 40px 30px 40px;
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        font-size: 20px;
+        color: $dark-blue;
+        padding-bottom: 20px;
+      }
+
+      &__description {
+        font-size: 16px;
+        line-height: 24px;
+        color: #6C6C6A;
+        padding-bottom: 50px;
+      }
+
+      .btn-primary {
+        max-width: 330px;
+      }
+
+      &__options {
+        padding-top: 60px;
+
+        &__entry {
+          text-transform: uppercase;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          padding-right: 15px;
+          color: $dark-blue;
+          opacity: 0.8;
+
+          &:hover {
+            opacity: 1;
+            text-decoration: none;
+          }
+
+          &:not(:first-child) {
+            border-left: 1px solid #E1E1E1;
+            padding: 0 15px;
+          }
+        }
+      }
+    }
+  }
+}
