@@ -1,10 +1,11 @@
 <?php
 
+// Include browser and os detection so we can show different templates for install/download page
 require_once('BrowserDetection.php');
 $browser = new BrowserDetection();
-var_dump($browser->getName());
-var_dump($browser->getVersion());
-var_dump($browser->getPlatform());
+// var_dump($browser->getName());
+// var_dump($browser->getVersion());
+// var_dump($browser->getPlatform());
 
 
 // Include translation file
@@ -141,7 +142,7 @@ if(is_page('oc-news') || is_page('blogfeed')) {
 	$html .= '<body ';
 	ob_clean();
 	ob_start();
-	body_class();
+	body_class($browser->getPlatform());
 	$html .= ob_get_contents() . '>';
 	ob_end_clean();
 
