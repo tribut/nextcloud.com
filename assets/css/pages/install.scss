@@ -196,17 +196,14 @@
 }
 
 $spin-time: 5.5s;
-$circle-size: 10vmin;
-$circle-stroke: 10vmin;
+$circle-size: 50vmin;
+$circle-stroke: 50vmin;
 $displacement: 0%;
 
 .circles {
     height: $circle-size;
     width: $circle-size;
     position: absolute;
-    margin: 0 auto;
-    top: 50%;
-    left: 50%;
     transform: translate3D(-50%, -50%, 0);
 }
 
