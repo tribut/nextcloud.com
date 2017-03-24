@@ -3,6 +3,7 @@ requirejs.config({
 	baseURL: "wp-content/themes/next/assets/js/",
 	paths: {
 		jquery:"vendor/jquery.min",
+		browserSelector:"vendor/css_browser_selector",
 		oldJquery:"old/vendor/jquery-1.10.2.min",
 		waypoints:"vendor/jquery.waypoints.min",
 		enquire:"vendor/enquire",

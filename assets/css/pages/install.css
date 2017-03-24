@@ -7,6 +7,7 @@
 /*Shadows*/
 /*Breakpoints*/
 .install-hero .container-fluid {
+  overflow: hidden;
   background-image: none;
   padding-bottom: 0;
   padding-top: 0;
@@ -17,16 +18,35 @@
   border-radius: 0 !important;
   background: #005C97;
   background: -webkit-linear-gradient(to left, #005C97, #363795);
+  background: -webkit-linear-gradient(right, #005C97, #363795);
   background: linear-gradient(to left, #005C97, #363795);
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
   display: flex !important;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column; }
   .install-hero .container-fluid .top-header {
     max-width: 700px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column; }
     .install-hero .container-fluid .top-header--center {
       text-align: center; }
@@ -35,7 +55,11 @@
   background: white;
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center; }
   .toggle-menu__entry {
     display: inline-block;
@@ -45,6 +69,7 @@
     font-weight: 600;
     letter-spacing: 1px;
     opacity: 0.4;
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease; }
     .toggle-menu__entry:hover {
       opacity: 1;
@@ -77,6 +102,7 @@
         display: block;
         padding: 5px 0;
         opacity: 0.6;
+        -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease; }
         .downloads-container .server-wrapper .usefull-links__link:hover {
           opacity: 1;
@@ -90,7 +116,12 @@
       box-shadow: 0 4px 44px 0 rgba(0, 0, 0, 0.02);
       border-radius: 2px;
       padding: 50px 40px 30px 40px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column; }
       .downloads-container .server-wrapper__download__title, .downloads-container .server-wrapper .usefull-links__title {
         font-size: 20px;
@@ -119,5 +150,61 @@
           .downloads-container .server-wrapper__download__options__entry:not(:first-child) {
             border-left: 1px solid #E1E1E1;
             padding: 0 15px; }
+
+.circles {
+  height: 50vmin;
+  width: 50vmin;
+  position: absolute;
+  transform: translate3D(-50%, -50%, 0); }
+
+.circle {
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  border: 50vmin solid white;
+  border-radius: 115% 140% 145% 110%/125% 140% 110% 125%; }
+  .circle:nth-child(1) {
+    opacity: 0.8;
+    border-color: white;
+    transform-origin: 50% 50%;
+    animation: spin1 5.5s linear infinite; }
+  .circle:nth-child(2) {
+    opacity: 0.8;
+    border-color: white;
+    transform-origin: 50% 50%;
+    animation: spin2 5.5s linear infinite; }
+  .circle:nth-child(3) {
+    opacity: 0.8;
+    border-color: white;
+    transform-origin: 50% 50%;
+    animation: spin3 5.5s linear infinite; }
+  .circle:nth-child(4) {
+    opacity: 0.8;
+    border-color: white;
+    transform-origin: 50% 50%;
+    animation: spin4 5.5s linear infinite; }
+
+@keyframes spin1 {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
+@keyframes spin2 {
+  0% {
+    transform: rotate(72deg); }
+  100% {
+    transform: rotate(-288deg); } }
+@keyframes spin3 {
+  0% {
+    transform: rotate(-144deg); }
+  100% {
+    transform: rotate(216deg); } }
+@keyframes spin4 {
+  0% {
+    transform: rotate(216deg); }
+  100% {
+    transform: rotate(-144deg); } }
 
 /*# sourceMappingURL=install.css.map */

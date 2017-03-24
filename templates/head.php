@@ -26,8 +26,6 @@
 	});
 	</script>
 
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/css-browser-selector.js" type="text/javascript"></script>
-
 <!-- 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/jquery.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/TweenMax.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/vendor/animation.gsap.js"></script>
