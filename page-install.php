@@ -36,7 +36,22 @@
 	</div>
 </section>
 
-<section class="toggle-menu">
+<section class="download-type">
+	<div class="container">
+		<div class="col-lg-4">
+			<h1>Get Nextcloud Server</h1>
+			<p>There are several ways to get your own nextcloud for you and for your data</p>
+			<a class="btn-primary" href="#"></a>
+		</div>
+
+		<div class="col-lg-4">
+			<h1>Get Nextcloud Server</h1>
+			<p>There are several ways to get your own nextcloud for you and for your data</p>
+		</div>
+	</div>
+</section>
+
+<!-- <section class="toggle-menu">
 	<span class="toggle-menu__entry toggle-menu__entry--active" id="server"><?php echo $l->t('Server');?></span>
 	<span class="toggle-menu__entry" id="desktop"><?php echo $l->t('Desktop Clients');?></span>
 	<span class="toggle-menu__entry" id="mobile"><?php echo $l->t('Mobile Clients');?></span>
@@ -206,4 +221,4 @@
 		</div>
 	</div>
 </div>
-</section>
+</section> -->

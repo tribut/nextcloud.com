@@ -89,7 +89,7 @@ require get_template_directory().'/strings.php';
 			</ul>
 				<ul class="right-buttons">
 					<li class="ghost-btn"><a href="https://demo.nextcloud.com/" class="nav__label"><?php echo $l->t('Demo');?></a></li>
-					<li class="ghost-btn"><a href="<?php echo home_url('install') ?>" class="nav__label"><?php echo $l->t('Download');?></a></li>
+					<li class="ghost-btn"><a href="<?php echo home_url('install') ?>" class="nav__label"><?php echo $l->t('Downloads');?></a></li>
 				</ul>
 			</div>
 		</div>
