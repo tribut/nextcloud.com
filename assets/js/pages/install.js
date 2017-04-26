@@ -26,7 +26,7 @@ function ($, _, enquire, velocity, velocityUI, ScrollMagic, browserSelector) {
                 menuActiveEntrySelector: "toggle-menu__entry--active",
                 serverMenuSelector: ".toggle-menu__entry:nth-child(1)",
                 desktopMenuSelector: ".toggle-menu__entry:nth-child(2)",
-                mobileMenuSelector: ".toggle-menu__entry:nth-child(3)",
+                mobileMenuSelector: ".toggle-menu__entry:nth-child(3)", 
                 serverDownloadSectionSelector: "#serverDownloads",
                 desktopDownloadSectionSelector: "#desktopDownloads",
                 mobileDownloadSectionSelector: "#mobileDownloads",
@@ -63,10 +63,8 @@ function ($, _, enquire, velocity, velocityUI, ScrollMagic, browserSelector) {
             },
 
             matchDevice: function(serverClick, desktopClick, mobileClick) {
-                var server = $(this.variables.htmlSelector).hasClass(this.variables.macClass || this.variables.linuxClass
-                    || this.variables.windowsClass),
-                    mobile = $(this.variables.htmlSelector).hasClass(this.variables.androidClass || this.variables.iosClass
-                        || this.variables.mobileClass);
+                var server = $(this.variables.htmlSelector).is(".mac, .linux, windows"),
+                    mobile = $(this.variables.htmlSelector).is(".android, .ios, .mobile");
 
                 if (desktopClick) {
                     $(this.variables.menuEntrySelector).removeClass(this.variables.menuActiveEntrySelector);
