@@ -7,10 +7,6 @@
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/pages/install.css" rel="stylesheet">
 </head>
 
-<div class="vars-php">
-	<?php echo "string";  ?>
-</div>
-
 <section class="install-hero">
 	<div class="container-fluid background">
 		<!-- <div class="circles" id="circles">
@@ -63,21 +59,23 @@
 	</div>
 </section>
 
-<section class="download-filtered">
+<section class="download-filtered download-filtered--server">
 		<div class="container">
 				<div class="download-filtered__text">
 					<h1 class="section--paragraph__tittle">Download</h1>
-					<p class="section__paragraph">Choose from the dropdown your OS and download</p>
+					<p class="section__paragraph"><?php echo $l->t('Choose from the dropdown above the download option you want');?></p>
 					<select class="" name="">
-						<option value="">MAC</option>
-						<option value="">Windows</option>
-						<option value="">Linux</option>
+						<option value="zip">Archive file</option>
+						<option value="windows">Web Installer</option>
+						<option value="Linux">Appliances</option>
 					</select>
 				</div>
 
-				<div class="download-filtered__downloads">
+				<div class="download-filtered__downloads col-md-6 col-md-offset-3">
 						<div class="download-filtered__downloads__OS">
-							<h1 id="nameOfOS"></h1>
+							<img src="" alt="icon--archive">
+							<h1> Archive file</h1>
+							<a class="btn-primary" href="<?php echo $DOWNLOAD_SERVER_STABLE_ZIP; ?>">Get Nextcloud</a>
 						</div>
 				</div>
 		</div>
