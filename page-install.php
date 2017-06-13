@@ -1,85 +1,109 @@
 <head>
 	<script>
 	require(["require.config"], function() {
-		require(["pages/install"])
+		require(["pages/install", "handlebars"])
 	});
 	</script>
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/pages/install.css" rel="stylesheet">
 </head>
 
-<section class="install-hero">
-	<div class="container-fluid background">
-		<!-- <div class="circles" id="circles">
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
+<script>
+var PHPStrings = <?php
+$phpArray = array(
+	'mac' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_MAC,
+	'windows' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_WIN,
+	'linux' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_LINUX,
+);
+
+echo json_encode($phpArray);
+?>;
+</script>
+
+
+<!-- <div class="circles" id="circles">
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+</div>
+
+<div class="circles" id="circles">
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+</div>
+
+<div class="circles" id="circles">
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+</div> -->
+<div class="handlebars-content">
+
+</div>
+
+<script id="handlebars-logic" type="text/x-handlebars-template">
+	<section class="install-hero">
+		<div class="container-fluid background">
+			<div class="top-header top-header--center">
+				<h1 class="text--center"><?php echo $l->t('This is the first step to secure your data.');?></h1>
+				<h2 class="text--center"><?php echo $l->t('From the menu above choose what you want to download.');?></h2>
+			</div>
 		</div>
-
-		<div class="circles" id="circles">
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-		</div>
-
-		<div class="circles" id="circles">
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-			<div class="circle"></div>
-		</div> -->
-
-		<div class="top-header top-header--center">
-			<h1 class="text--center"><?php echo $l->t('This is the first step to secure your data.');?></h1>
-			<h2 class="text--center"><?php echo $l->t('From the menu above choose what you want to download.');?></h2>
-		</div>
-	</div>
-</section>
-
-<section class="downloads">
-	<div class="container">
-		<div class="col-lg-4 download-type">
-			<h1 class="download-type__title section--paragraph__tittle">Get Nextcloud Server</h1>
-			<p class="download-type__description section__paragraph">There are several ways to get your own nextcloud for you and for your data</p>
-			<a class="btn-primary" href="#">Get Nextcloud</a>
-		</div>
-
-		<div class="col-lg-4 download-type">
-			<h1 class="download-type__title section--paragraph__tittle">Desktop Clients</h1>
-			<p class="download-type__description section__paragraph">Install Nextcloud client and get acess to your data wherever you are.</p>
-			<a class="btn-primary" href="#">Get Nextcloud</a>
-		</div>
-
-		<div class="col-lg-4 download-type">
-			<h1 class="download-type__title section--paragraph__tittle">Mobile Clients</h1>
-			<p class="download-type__description section__paragraph">Install Nextcloud client and get acess to your data wherever you are.</p>
-			<a class="btn-primary" href="#">Get Nextcloud</a>
-		</div>
-	</div>
-</section>
-
-<section class="download-filtered download-filtered--server">
+	</section>
+	<section class="downloads">
 		<div class="container">
-				<div class="download-filtered__text">
-					<h1 class="section--paragraph__tittle">Download</h1>
-					<p class="section__paragraph"><?php echo $l->t('Choose from the dropdown above the download option you want');?></p>
-					<select class="" name="">
-						<option value="zip">Archive file</option>
-						<option value="windows">Web Installer</option>
-						<option value="Linux">Appliances</option>
-					</select>
-				</div>
+			<div class="col-lg-4 download-type">
+				<img class="download-type__svg" src="<?php echo get_template_directory_uri(); ?>/assets/img/install/server.svg" />
+				<h1 class="download-type__title section--paragraph__tittle"><?php echo $l->t('Get Nextcloud Server');?></h1>
+				<p class="download-type__description section__paragraph">There are several ways to get your own nextcloud for you and for your data</p>
+				<a class="btn-primary" href="#">Get Nextcloud</a>
+			</div>
 
-				<div class="download-filtered__downloads col-md-6 col-md-offset-3">
-						<div class="download-filtered__downloads__OS">
-							<img src="" alt="icon--archive">
-							<h1> Archive file</h1>
-							<a class="btn-primary" href="<?php echo $DOWNLOAD_SERVER_STABLE_ZIP; ?>">Get Nextcloud</a>
-						</div>
-				</div>
+			<div class="col-lg-4 download-type">
+				<img class="download-type__svg" src="<?php echo get_template_directory_uri(); ?>/assets/img/install/Desktop.svg" />
+				<h1 class="download-type__title section--paragraph__tittle">Desktop Clients</h1>
+				<p class="download-type__description section__paragraph">Install Nextcloud client and get acess to your data wherever you are.</p>
+				<a class="btn-primary" href="#">Get Nextcloud</a>
+			</div>
+
+			<div class="col-lg-4 download-type">
+				<img class="download-type__svg" src="<?php echo get_template_directory_uri(); ?>/assets/img/install/mobile.svg" />
+				<h1 class="download-type__title section--paragraph__tittle">Mobile Clients</h1>
+				<p class="download-type__description section__paragraph">Install Nextcloud client and get acess to your data wherever you are.</p>
+				<a class="btn-primary" href="#">Get Nextcloud</a>
+			</div>
 		</div>
-</section>
+	</section>
+
+	<section class="download-filtered download-filtered--server">
+		<div class="container">
+			<div class="download-filtered__text">
+				<h1 class="section--paragraph__tittle">Download</h1>
+				<p class="section__paragraph">Choose from the dropdown above the download option you want</p>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4">
+						<select class="download-filtered__select" name="">
+							<option value="zip">Archive file</option>
+							<option value="windows">Web Installer</option>
+							<option value="Linux">Appliances</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="download-filtered__downloads col-md-6 col-md-offset-3">
+				<div class="download-filtered__downloads__OS">
+					<img src="" alt="icon--archive">
+					<h1> Archive file</h1>
+					<a class="btn-primary" href="{{mac}}">Get Nextcloud</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</script>
 
 <!-- <section class="toggle-menu">
 <span class="toggle-menu__entry toggle-menu__entry--active" id="server"><?php echo $l->t('Server');?></span>

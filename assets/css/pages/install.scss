@@ -7,9 +7,19 @@
   .download-type {
     text-align: center;
 
+    &__svg {
+      width: 64px;
+      height: 64px;
+    }
+
     a {
-      display: block;
+      display: inline-block;
       margin-top: 20px;
+      padding: 25px 70px 25px 30px;
+
+      &:before {
+        right: 30px;
+      }
     }
   }
 }
@@ -20,7 +30,7 @@
   text-align: center;
 
   .download-filtered__downloads {
-    margin-top: 40px; 
+    margin-top: 40px;
     padding: 40px;
     background-color: white;
     border: 1px solid white;

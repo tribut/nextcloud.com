@@ -10,9 +10,15 @@
   padding-bottom: 80px; }
   .downloads .download-type {
     text-align: center; }
+    .downloads .download-type__svg {
+      width: 64px;
+      height: 64px; }
     .downloads .download-type a {
-      display: block;
-      margin-top: 20px; }
+      display: inline-block;
+      margin-top: 20px;
+      padding: 25px 70px 25px 30px; }
+      .downloads .download-type a:before {
+        right: 30px; }
 
 .download-filtered {
   padding: 80px 0;
