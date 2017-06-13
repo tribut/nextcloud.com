@@ -10,9 +10,26 @@
 <script>
 var PHPStrings = <?php
 $phpArray = array(
-	'mac' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_MAC,
-	'windows' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_WIN,
-	'linux' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_LINUX,
+	options => array(
+		server =>  array(
+			'archive' => $DOWNLOAD_SERVER_STABLE_ZIP,
+			'web' => $DOWNLOAD_SERVER_WEB_INSTALLER,
+			'appliance' => 'https://github.com/nextcloud/vm',
+		),
+
+		desktop => array(
+			'mac' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_MAC,
+			'windows' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_WIN,
+			'linux' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_LINUX,
+		),
+
+		mobile => array(
+			"android" => $DOWNLOAD_CLIENT_MOBILE_ANDROID,
+			"fdroid" => $DOWNLOAD_CLIENT_MOBILE_FDROID,
+			"ios" => $DOWNLOAD_CLIENT_MOBILE_IOS,
+			"windows" => $DOWNLOAD_CLIENT_MOBILE_WIN,
+		)
+	)
 );
 
 echo json_encode($phpArray);
@@ -84,6 +101,11 @@ echo json_encode($phpArray);
 				<h1 class="section--paragraph__tittle">Download</h1>
 				<p class="section__paragraph">Choose from the dropdown above the download option you want</p>
 				<div class="row">
+					{{#each options.server}}
+						<li>
+							{{this}}
+						</li>
+					{{/each}}
 					<div class="col-md-4 col-md-offset-4">
 						<select class="download-filtered__select" name="">
 							<option value="zip">Archive file</option>
@@ -98,7 +120,7 @@ echo json_encode($phpArray);
 				<div class="download-filtered__downloads__OS">
 					<img src="" alt="icon--archive">
 					<h1> Archive file</h1>
-					<a class="btn-primary" href="{{mac}}">Get Nextcloud</a>
+					<a class="btn-primary" href="{{server.archive}}">Get Nextcloud</a>
 				</div>
 			</div>
 		</div>

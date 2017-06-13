@@ -12,6 +12,7 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 $(this.variables.downloadButton).click(_.bind(this.showDownloadsOptions, this));
 
                 console.log(PHPStrings);
+                
                 enquire.register('screen and (max-width: 480px)', {
                     //match: _.bind(this.resultsBindMobile, this)
                 });
