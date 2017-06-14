@@ -12,9 +12,15 @@ var PHPStrings = <?php
 $phpArray = array(
 	options => array(
 		server =>  array(
-			'archive' => $DOWNLOAD_SERVER_STABLE_ZIP,
-			'web' => $DOWNLOAD_SERVER_WEB_INSTALLER,
-			'appliance' => 'https://github.com/nextcloud/vm',
+			name => array(
+				'Zip', "Web installer", 'Appliance',
+			),
+
+			link => array(
+				'archive' => $DOWNLOAD_SERVER_STABLE_ZIP,
+				'web' => $DOWNLOAD_SERVER_WEB_INSTALLER,
+				'appliance' => 'https://github.com/nextcloud/vm',
+			),
 		),
 
 		desktop => array(
@@ -101,16 +107,11 @@ echo json_encode($phpArray);
 				<h1 class="section--paragraph__tittle">Download</h1>
 				<p class="section__paragraph">Choose from the dropdown above the download option you want</p>
 				<div class="row">
-					{{#each options.server}}
-						<li>
-							{{this}}
-						</li>
-					{{/each}}
 					<div class="col-md-4 col-md-offset-4">
 						<select class="download-filtered__select" name="">
-							<option value="zip">Archive file</option>
-							<option value="windows">Web Installer</option>
-							<option value="Linux">Appliances</option>
+							{{#each options.server.name}}
+								<option value="{{this}}">{{this}}</option>
+							{{/each}}
 						</select>
 					</div>
 				</div>

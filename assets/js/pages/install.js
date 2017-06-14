@@ -8,11 +8,12 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 this.compileTemplate();
                 $(this.variables.downloadSection).hide();
                 $(this.variables.downloadFiltersSelect).selectize();
+                //$(".selectize-dropdown-content").on("change", _.bind(this.changeDownloadOptionsContent, this));
 
                 $(this.variables.downloadButton).click(_.bind(this.showDownloadsOptions, this));
 
                 console.log(PHPStrings);
-                
+
                 enquire.register('screen and (max-width: 480px)', {
                     //match: _.bind(this.resultsBindMobile, this)
                 });
@@ -44,6 +45,10 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 }, 1000);
             },
 
+            changeDownloadOptionsContent: function(event) {
+                var currentValue = $(event.currentTarget).getValue();
+                console.log(currentValue);
+            },
 
         }
         installPage.init();
