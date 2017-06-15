@@ -9,33 +9,55 @@
 
 <script>
 var PHPStrings = <?php
+// $phpArray = array(
+// 	options => array(
+// 		server =>  array(
+// 			name => array(
+// 				'Zip', "Web installer", 'Appliance',
+// 			),
+//
+// 			link => array(
+// 				'archive' => $DOWNLOAD_SERVER_STABLE_ZIP,
+// 				'web' => $DOWNLOAD_SERVER_WEB_INSTALLER,
+// 				'appliance' => 'https://github.com/nextcloud/vm',
+// 			),
+// 		),
+//
+// 		desktop => array(
+// 			'mac' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_MAC,
+// 			'windows' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_WIN,
+// 			'linux' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_LINUX,
+// 		),
+//
+// 		mobile => array(
+// 			"android" => $DOWNLOAD_CLIENT_MOBILE_ANDROID,
+// 			"fdroid" => $DOWNLOAD_CLIENT_MOBILE_FDROID,
+// 			"ios" => $DOWNLOAD_CLIENT_MOBILE_IOS,
+// 			"windows" => $DOWNLOAD_CLIENT_MOBILE_WIN,
+// 		)
+// 	)
+// );
+
 $phpArray = array(
-	options => array(
 		server =>  array(
-			name => array(
-				'Zip', "Web installer", 'Appliance',
+			options => array(
+				"Zip", "Web Installer", "appliance",
 			),
-
-			link => array(
-				'archive' => $DOWNLOAD_SERVER_STABLE_ZIP,
-				'web' => $DOWNLOAD_SERVER_WEB_INSTALLER,
-				'appliance' => 'https://github.com/nextcloud/vm',
+			zip => array(
+				name => 'Zip',
+				link => $DOWNLOAD_SERVER_STABLE_ZIP,
+				extraClass => "download-filtered__downloads__OS--zip",
+				title => 'Web installer Title',
 			),
-		),
-
-		desktop => array(
-			'mac' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_MAC,
-			'windows' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_WIN,
-			'linux' => $DOWNLOAD_CLIENT_DESKTOP_STABLE_LINUX,
-		),
-
-		mobile => array(
-			"android" => $DOWNLOAD_CLIENT_MOBILE_ANDROID,
-			"fdroid" => $DOWNLOAD_CLIENT_MOBILE_FDROID,
-			"ios" => $DOWNLOAD_CLIENT_MOBILE_IOS,
-			"windows" => $DOWNLOAD_CLIENT_MOBILE_WIN,
+			web => array(
+				name => "Web Installer",
+				link => $DOWNLOAD_SERVER_WEB_INSTALLER,
+			),
+			appliance => array(
+				name => "appliance",
+				link => "https://github.com/nextcloud/vm",
+			),
 		)
-	)
 );
 
 echo json_encode($phpArray);
@@ -109,7 +131,7 @@ echo json_encode($phpArray);
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<select class="download-filtered__select" name="">
-							{{#each options.server.name}}
+							{{#each server.options}}
 								<option value="{{this}}">{{this}}</option>
 							{{/each}}
 						</select>
@@ -118,14 +140,17 @@ echo json_encode($phpArray);
 			</div>
 
 			<div class="download-filtered__downloads col-md-6 col-md-offset-3">
-				<div class="download-filtered__downloads__OS">
-					<img src="" alt="icon--archive">
-					<h1> Archive file</h1>
-					<a class="btn-primary" href="{{server.archive}}">Get Nextcloud</a>
-				</div>
 			</div>
 		</div>
 	</section>
+</script>
+
+<script id="handlebars-download-logic" type="text/x-handlebars-template">
+	<div class="download-filtered__downloads__OS {{this.server.zip.extraClass}}">
+		<img src="" alt="icon">
+		<h1>Archive file</h1>
+		<a class="btn-primary" href="{{server.archive}}">Get Nextcloud</a>
+	</div>
 </script>
 
 <!-- <section class="toggle-menu">

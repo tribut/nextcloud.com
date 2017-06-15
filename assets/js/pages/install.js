@@ -5,10 +5,16 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
         var installPage = {
             init: function() {
 
-                this.compileTemplate();
+                var self = this;
+
+                this.compileTemplateSkeleton();
                 $(this.variables.downloadSection).hide();
-                $(this.variables.downloadFiltersSelect).selectize();
-                //$(".selectize-dropdown-content").on("change", _.bind(this.changeDownloadOptionsContent, this));
+                $(this.variables.downloadFiltersSelect).selectize({
+                  onChange: function(value) {
+                      var currentValue = this.getValue();
+                      self.reRenderTemplate(currentValue);
+                  }
+                });
 
                 $(this.variables.downloadButton).click(_.bind(this.showDownloadsOptions, this));
 
@@ -27,18 +33,35 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 downloadButton: ".downloads .download-type a",
                 downloadSection: ".download-filtered",
                 downloadFiltersSelect: ".download-filtered__select",
+                downloadsContainerSelector: ".download-filtered__downloads__OS"
             },
 
-            compileTemplate: function() {
+            reRenderTemplate: function(currentValue) {
+                console.log(currentValue);
+                if (currentValue === "Zip") {
+                    console.log(PHPStrings.options);
+                }
+            },
+
+            compileTemplateSkeleton: function() {
                 var handlebarsLogic = $("#handlebars-logic").html();
                 var template = Handlebars.compile(handlebarsLogic);
                 var html = template(PHPStrings);
 
                 $(".handlebars-content").append(html);
             },
+            compileTemplateDownloads: function() {
+                var handlebarsDownloads = $("#handlebars-download-logic").html();
+                var template = Handlebars.compile(handlebarsDownloads);
+                var html = template(PHPStrings);
+
+                $(".download-filtered__downloads").append(html);
+            },
 
             showDownloadsOptions: function() {
                 $(this.variables.downloadSection).show();
+                this.compileTemplateDownloads();
+                //this.reRenderTemplate();
 
                 $('html, body').animate({
                     scrollTop: $(this.variables.downloadSection).offset().top
@@ -46,8 +69,6 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
             },
 
             changeDownloadOptionsContent: function(event) {
-                var currentValue = $(event.currentTarget).getValue();
-                console.log(currentValue);
             },
 
         }
