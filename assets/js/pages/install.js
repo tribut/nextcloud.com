@@ -5,7 +5,9 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
         var installPage = {
             init: function() {
 
-                var self = this;
+                const self = this;
+                var data = PHPStrings;
+
 
                 this.compileTemplateSkeleton();
                 $(this.variables.downloadSection).hide();
@@ -16,7 +18,7 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                   }
                 });
 
-                $(this.variables.downloadButton).click(_.bind(this.showDownloadsOptions, this));
+                $(this.variables.downloadButton).click(_.bind(this.ßœ, this));
 
                 console.log(PHPStrings);
 
@@ -36,10 +38,21 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 downloadsContainerSelector: ".download-filtered__downloads__OS"
             },
 
-            reRenderTemplate: function(currentValue) {
+            templateDownloadsHandler: function(currentValue) {
                 console.log(currentValue);
                 if (currentValue === "Zip") {
-                    console.log(PHPStrings.options);
+                    var data = PHPStrings.server.zip;
+                    console.log(data);
+
+                    this.compileTemplateDownloads(data);
+                    return
+                }
+
+                if (currentValue === "Web installer") {
+                    var data = PHPStrings.server.web;
+
+                    this.compileTemplateDownloads(data);
+                    return
                 }
             },
 
@@ -50,18 +63,20 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
 
                 $(".handlebars-content").append(html);
             },
-            compileTemplateDownloads: function() {
+
+            compileTemplateDownloads: function(data) {
+              console.log(data);
                 var handlebarsDownloads = $("#handlebars-download-logic").html();
                 var template = Handlebars.compile(handlebarsDownloads);
-                var html = template(PHPStrings);
+                var html = template(data);
 
                 $(".download-filtered__downloads").append(html);
             },
 
             showDownloadsOptions: function() {
                 $(this.variables.downloadSection).show();
-                this.compileTemplateDownloads();
-                //this.reRenderTemplate();
+                this.compileTemplateSkeleton();
+                this.templateDownloadsHandler();
 
                 $('html, body').animate({
                     scrollTop: $(this.variables.downloadSection).offset().top
