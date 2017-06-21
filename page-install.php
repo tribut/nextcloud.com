@@ -88,34 +88,10 @@ echo json_encode($phpArray);
 ?>;
 </script>
 
-
-<!-- <div class="circles" id="circles">
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-</div>
-
-<div class="circles" id="circles">
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-</div>
-
-<div class="circles" id="circles">
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-<div class="circle"></div>
-</div> -->
-
 <section class="install-hero">
 	<div class="container-fluid background">
-		<div class="top-header top-header--center">
 			<h1 class="text--center"><?php echo $l->t('This is the first step to secure your data.');?></h1>
 			<h2 class="text--center"><?php echo $l->t('From the menu above choose what you want to download.');?></h2>
-		</div>
 	</div>
 </section>
 <section class="downloads">

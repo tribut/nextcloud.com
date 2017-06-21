@@ -6,8 +6,33 @@
 /*Colors*/
 /*Shadows*/
 /*Breakpoints*/
+.install-hero {
+  background-image: -webkit-linear-gradient(313deg, #0080CC 0%, #363795 100%);
+  background-image: -o-linear-gradient(313deg, #0080CC 0%, #363795 100%);
+  background-image: linear-gradient(43deg, #0080CC 0%, #363795 100%); }
+  .install-hero .background {
+    text-align: center;
+    height: 80vh;
+    min-height: 700px;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+    .install-hero .background h1,
+    .install-hero .background h2 {
+      max-width: 560px; }
+
 .downloads {
-  padding-bottom: 80px; }
+  padding: 120px 0; }
   .downloads .download-type {
     text-align: center; }
     .downloads .download-type__svg {

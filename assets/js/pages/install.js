@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "enquire", "browserSelector", "handlebars", "selectize"],
-function ($, _, enquire, browserSelector, Handlebars, selectize) {
+define(["jquery", "underscore", "enquire", "browserSelector", "selectize"],
+function ($, _, enquire, browserSelector, selectize) {
     $(document).ready(function() {
         'use strict';
         var installPage = {
@@ -9,9 +9,8 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 var jsonObject = PHPStrings;
                 this.selectedItem;
 
-                $(".selectize-input>*").on("change", _.bind(this.contentHandler, this));
 
-
+                $(".download-filtered").hide();
                 $(this.variables.downloadButton).click(_.bind(this.templateDownloadsHandler, this));
 
                 enquire.register('screen and (max-width: 480px)', {
@@ -47,6 +46,11 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
 
                 } else {
                     this.updateContent(deviceType);
+
+                    $(".download-filtered").show();
+                    $("html, body").animate({
+                        scrollTop: $(".download-filtered").offset().top
+                    }, 1000)
                     return
                 }
             },
