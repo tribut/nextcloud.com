@@ -18,7 +18,6 @@ requirejs.config({
 		inview:"vendor/jquery.inview",
 		bootstrap:"vendor/bootstrap",
 		youtubeplugin:"old/vendor/jquery.youtubepopup.min",
-		handlebars: ['https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.amd', 'vendor/handlebars.min'],
 		selectize: ['https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min'],
 	},
 	shim: {

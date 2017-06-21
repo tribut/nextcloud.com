@@ -6,21 +6,13 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
             init: function() {
 
                 const self = this;
-                var data = PHPStrings;
+                var jsonObject = PHPStrings;
+                this.selectedItem;
+
+                $(".selectize-input>*").on("change", _.bind(this.contentHandler, this));
 
 
-                this.compileTemplateSkeleton();
-                $(this.variables.downloadSection).hide();
-                $(this.variables.downloadFiltersSelect).selectize({
-                  onChange: function(value) {
-                      var currentValue = this.getValue();
-                      self.reRenderTemplate(currentValue);
-                  }
-                });
-
-                $(this.variables.downloadButton).click(_.bind(this.ßœ, this));
-
-                console.log(PHPStrings);
+                $(this.variables.downloadButton).click(_.bind(this.templateDownloadsHandler, this));
 
                 enquire.register('screen and (max-width: 480px)', {
                     //match: _.bind(this.resultsBindMobile, this)
@@ -38,54 +30,74 @@ function ($, _, enquire, browserSelector, Handlebars, selectize) {
                 downloadsContainerSelector: ".download-filtered__downloads__OS"
             },
 
-            templateDownloadsHandler: function(currentValue) {
-                console.log(currentValue);
-                if (currentValue === "Zip") {
-                    var data = PHPStrings.server.zip;
-                    console.log(data);
 
-                    this.compileTemplateDownloads(data);
+
+            templateDownloadsHandler: function(event) {
+                var currentCategory = $(event.currentTarget).attr("data-category");
+                var deviceType;
+
+                if (currentCategory === "server") {
+                    deviceType = PHPStrings.server;
+
+                } if (currentCategory === "desktop") {
+                     deviceType = PHPStrings.desktop;
+
+                } if (currentCategory === "mobile") {
+                     deviceType = PHPStrings.mobile;
+
+                } else {
+                    this.updateContent(deviceType);
                     return
                 }
+            },
 
-                if (currentValue === "Web installer") {
-                    var data = PHPStrings.server.web;
+            updateContent: function(deviceType) {
+                this.addSelectOptions(deviceType);
+                this.initSelectize();
+            },
 
-                    this.compileTemplateDownloads(data);
-                    return
+            addSelectOptions: function(deviceType) {
+                $.each(deviceType.options, function(key, value) {
+                     $('.download-filtered__select')
+                         .append($("<option></option>")
+                                    .attr("value",key)
+                                    .text(value));
+                });
+
+                this.contentHandler(deviceType);
+            },
+
+            initSelectize: function() {
+                var select = $(".download-filtered__select").selectize(),
+                    selectizeControl = select[0].selectize;
+
+                selectizeControl.on('change', function(value) {
+                    var item = this.$input[0];
+                    this.selectedItem = $(item.selectize.getItem(value)[0]).text();
+                });
+            },
+
+            contentHandler: function(deviceType) {
+                var downloadOption;
+
+                if (this.selectedItem === undefined || "Zip") {
+                    downloadOption = deviceType.zip;
+
+                    this.addInformation(downloadOption);
+
+                } if (true) {
+
+                } else {
+
                 }
             },
 
-            compileTemplateSkeleton: function() {
-                var handlebarsLogic = $("#handlebars-logic").html();
-                var template = Handlebars.compile(handlebarsLogic);
-                var html = template(PHPStrings);
-
-                $(".handlebars-content").append(html);
-            },
-
-            compileTemplateDownloads: function(data) {
-              console.log(data);
-                var handlebarsDownloads = $("#handlebars-download-logic").html();
-                var template = Handlebars.compile(handlebarsDownloads);
-                var html = template(data);
-
-                $(".download-filtered__downloads").append(html);
-            },
-
-            showDownloadsOptions: function() {
-                $(this.variables.downloadSection).show();
-                this.compileTemplateSkeleton();
-                this.templateDownloadsHandler();
-
-                $('html, body').animate({
-                    scrollTop: $(this.variables.downloadSection).offset().top
-                }, 1000);
-            },
-
-            changeDownloadOptionsContent: function(event) {
-            },
-
+            addInformation: function(downloadOption) {
+                console.log(downloadOption);
+                $(".download-filtered__downloads__OS").addClass(downloadOption.extraClass);
+                $(".download-filtered__downloads__info h1").text(downloadOption.title);
+                $(".download-filtered__downloads__info a").prop("href", downloadOption.link);
+            }
         }
         installPage.init();
     });
