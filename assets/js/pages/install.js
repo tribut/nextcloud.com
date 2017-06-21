@@ -5,9 +5,13 @@ function ($, _, enquire, browserSelector, selectize) {
         var installPage = {
             init: function() {
 
-                const self = this;
+                this.self = this;
                 var jsonObject = PHPStrings;
+                this.selectizeControl;
                 this.selectedItem;
+                this.deviceType;
+
+                console.log(PHPStrings);
 
 
                 $(".download-filtered").hide();
@@ -29,23 +33,20 @@ function ($, _, enquire, browserSelector, selectize) {
                 downloadsContainerSelector: ".download-filtered__downloads__OS"
             },
 
-
-
             templateDownloadsHandler: function(event) {
                 var currentCategory = $(event.currentTarget).attr("data-category");
-                var deviceType;
 
                 if (currentCategory === "server") {
-                    deviceType = PHPStrings.server;
+                    this.deviceType = PHPStrings.server;
 
                 } if (currentCategory === "desktop") {
-                     deviceType = PHPStrings.desktop;
+                     this.deviceType = PHPStrings.desktop;
 
                 } if (currentCategory === "mobile") {
-                     deviceType = PHPStrings.mobile;
+                     this.deviceType = PHPStrings.mobile;
 
                 } else {
-                    this.updateContent(deviceType);
+                    this.updateContent();
 
                     $(".download-filtered").show();
                     $("html, body").animate({
@@ -55,41 +56,52 @@ function ($, _, enquire, browserSelector, selectize) {
                 }
             },
 
-            updateContent: function(deviceType) {
-                this.addSelectOptions(deviceType);
+            updateContent: function() {
+                this.addSelectOptions();
                 this.initSelectize();
             },
 
-            addSelectOptions: function(deviceType) {
-                $.each(deviceType.options, function(key, value) {
+            addSelectOptions: function() {
+                $.each(this.deviceType.options, function(key, value) {
                      $('.download-filtered__select')
                          .append($("<option></option>")
                                     .attr("value",key)
                                     .text(value));
                 });
 
-                this.contentHandler(deviceType);
+                this.contentHandler();
             },
 
             initSelectize: function() {
-                var select = $(".download-filtered__select").selectize(),
-                    selectizeControl = select[0].selectize;
+                var select = $(".download-filtered__select").selectize();
+                    this.selectizeControl = select[0].selectize;
 
-                selectizeControl.on('change', function(value) {
-                    var item = this.$input[0];
-                    this.selectedItem = $(item.selectize.getItem(value)[0]).text();
-                });
+                this.selectizeControl.on('change', _.bind(this.test, this))
             },
 
-            contentHandler: function(deviceType) {
+            test: function(value) {
+                var item = this.selectizeControl.$input[0];
+                this.selectedItem = $(item.selectize.getItem(value)[0]).text();
+                console.log(this.selectedItem);
+                this.contentHandler();
+            },
+
+            contentHandler: function() {
                 var downloadOption;
 
-                if (this.selectedItem === undefined || "Zip") {
-                    downloadOption = deviceType.zip;
+                console.log(this.selectedItem);
 
+                if (this.selectedItem === undefined || "Zip") {
+                    downloadOption = this.deviceType.zip;
                     this.addInformation(downloadOption);
 
-                } if (true) {
+                } if (this.selectedItem === "Web Installer") {
+                    downloadOption = this.deviceType.web;
+                    this.addInformation(downloadOption);
+
+                } if (this.selectedItem === "Appliance") {
+                    downloadOption = this.deviceType.appliance;
+                    this.addInformation(downloadOption);
 
                 } else {
 

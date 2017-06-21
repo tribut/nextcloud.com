@@ -12,7 +12,7 @@ var PHPStrings = <?php
 $phpArray = array(
 		server =>  array(
 			options => array(
-				"Zip", "Web Installer", "appliance",
+				"Zip", "Web Installer", "Appliance",
 			),
 			zip => array(
 				name => 'Zip',
@@ -27,7 +27,7 @@ $phpArray = array(
 				title => "Web title here",
 			),
 			appliance => array(
-				name => "appliance",
+				name => "Appliance",
 				link => "https://github.com/nextcloud/vm",
 				extraClass => "download-filtered__downloads__OS--appliance",
 				title => "appliance title here",
@@ -99,22 +99,22 @@ echo json_encode($phpArray);
 		<div class="col-lg-4 download-type">
 			<img class="download-type__svg" src="<?php echo get_template_directory_uri(); ?>/assets/img/install/server.svg" />
 			<h1 class="download-type__title section--paragraph__tittle"><?php echo $l->t('Get Nextcloud Server');?></h1>
-			<p class="download-type__description section__paragraph">There are several ways to get your own nextcloud for you and for your data</p>
-			<a class="btn-primary" data-category="server" href="#">Get Nextcloud</a>
+			<p class="download-type__description section__paragraph"><?php echo $l->t('There are several ways to get your own nextcloud for you and for your data');?></p>
+			<a class="btn-primary" data-category="server" href="#"><?php echo $l->t('Get Nextcloud');?></a>
 		</div>
 
 		<div class="col-lg-4 download-type">
 			<img class="download-type__svg" src="<?php echo get_template_directory_uri(); ?>/assets/img/install/Desktop.svg" />
-			<h1 class="download-type__title section--paragraph__tittle">Desktop Clients</h1>
-			<p class="download-type__description section__paragraph">Install Nextcloud client and get acess to your data wherever you are.</p>
-			<a class="btn-primary" data-category="desktop" href="#">Get Nextcloud</a>
+			<h1 class="download-type__title section--paragraph__tittle"><?php echo $l->t('Desktop Clients');?></h1>
+			<p class="download-type__description section__paragraph"><?php echo $l->t('Install Nextcloud client and get acess to your data wherever you are.');?></p>
+			<a class="btn-primary" data-category="desktop" href="#"><?php echo $l->t('Get Nextcloud');?></a>
 		</div>
 
 		<div class="col-lg-4 download-type">
 			<img class="download-type__svg" src="<?php echo get_template_directory_uri(); ?>/assets/img/install/mobile.svg" />
-			<h1 class="download-type__title section--paragraph__tittle">Mobile Clients</h1>
-			<p class="download-type__description section__paragraph">Install Nextcloud client and get acess to your data wherever you are.</p>
-			<a class="btn-primary" data-category="mobile" href="#">Get Nextcloud</a>
+			<h1 class="download-type__title section--paragraph__tittle"><?php echo $l->t('Mobile Clients');?></h1>
+			<p class="download-type__description section__paragraph"><?php echo $l->t('Install Nextcloud client and get acess to your data wherever you are.');?></p>
+			<a class="btn-primary" data-category="mobile" href="#"><?php echo $l->t('Get Nextcloud');?></a>
 		</div>
 	</div>
 </section>
