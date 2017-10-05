@@ -24,7 +24,7 @@
 
 		<p class="">We are a modern, distributed, open source company. It is our mission to provide our users and customers with the means for data storage, access and communication under their control; protecting their privacy and security.</p>
 
-		<p class="revealOnScroll">We pursue a fully-open strategy, keeping internal communication to a minimum while aiming to work, discuss and develop in public. We are a thriving, quickly growing company with a solid customer base. An open source background or experience contributing to Nextcloud is a big plus for job applicants! Expecially for developers we pursue a strong "hire from the community" strategy.</p>
+		<p class="revealOnScroll">We pursue a fully-open strategy, keeping internal communication to a minimum while aiming to work, discuss and develop in public. We are a thriving, quickly growing company with a solid customer base. An open source background or experience contributing to Nextcloud is a big plus for job applicants! Especially for developers we pursue a strong "hire from the community" strategy.</p>
 		<p class="revealOnScroll">Nextcloud actively strives for diversity and we'd like to especially encourage applications by members of underrepresented groups in tech.</p>
 	</div>
 </section>
@@ -89,9 +89,9 @@
                 <p>We are looking for somebody with ambition and drive, who would like to grow and learn. That means if you do not yet fulfill the requirements but want to learn, apply! Contact us at <a href="mailto:jobs@nextcloud.com">jobs@nextcloud.com</a> with your resume if you are interested in this role.</p>
             </div>
 
-            <a href="#bdr" data-toggle="collapse"><h3 class="jobs">Business Development Representative<span class="icon-arrow"></span></h3></a>
+<!--            <a href="#bdr" data-toggle="collapse"><h3 class="jobs">Business Development Representative<span class="icon-arrow"></span></h3></a>
             <div id="bdr" class="collapse">
-                <p>We're looking for an ambitious, energetic Business Development Representative to work with prospects, customers and partners globally, qualifying leads and helping organizations on their road to becoming a Nextcloud customer!</p>
+                <p>We're looking for an ambitious Business Development Representative to work with prospects, customers and partners globally, qualifying leads and helping organizations on their road to becoming a Nextcloud customer!</p>
                 <p>Your responsibilities include being that first point of contact for prospective customers, opening a conversation and helping them in determining if our services can help them. You work closely with the sales team but also marketing, presenting our product to customers in various ways including in real life at events and online in webinars and blog posts.</p>
                 <p>The job would ideally be in our Stuttgart or Berlin office but we'd consider working from home, too. The position can be full-time, part-time or an internship.</p>
                 <p class="section--paragraph__tittle">Responsibilities:</p>
@@ -128,6 +128,49 @@
                 </ul>
 
                 <p>We are looking for somebody with ambition and drive, who would like to grow and learn. That means if you do not yet fulfill the requirements but want to learn, apply! Contact us at <a href="mailto:jobs@nextcloud.com">jobs@nextcloud.com</a> with your resume if you are interested in this role.</p>
+            </div>-->
+
+            <a href="#insidesales" data-toggle="collapse"><h3 class="jobs">Inside Sales<span class="icon-arrow"></span></h3></a>
+            <div id="insidesales" class="collapse">
+                <p>We're looking for starting sales and marketing-savvy inside sales representative to support and strengthen our sales efforts.</p>
+                <p>Your yob is to support the sales team, improve customer response times, take care of leads and inquiries and manage sales processes and activities.</p>
+                <p>The job would ideally be in our Stuttgart or Berlin office but we'd consider working from home, too. The position can be full-time, part-time or an internship and we look forward to somebody with ambition, willing to learn on the job!</p>
+                <p class="section--paragraph__tittle">Responsibilities:</p>
+
+                <ul>
+                    <li>Acting as first point of contact; inbound call reception and process according to workflow (answering,     forwarding).</li>
+                    <li>Managing our CRM, keeping customer data up to date and documenting workflows</li>
+                    <li>Support sales in processing opportunities and leads</li>
+                    <li>Working with marketing on lead gen and qualification</li>
+                    <li>Responding to customer requests, generating pricing proposals and deal with invoicing</li>
+                    <li>Collaborate with sales on RFP's</li>
+                    <li>Help onboard customers</li>
+                    <li>Present Nextcloud online and offline like in blogs, webinars and events</li>
+                </ul>
+
+                <p class="section--paragraph__tittle">Required skills:</p>
+
+                <ul>
+                    <li>Communication skills</li>
+                    <li>Enthusiasm around the product, community and company</li>
+                    <li>Willingness to learn on the job, ambition to grow in sales</li>
+                    <li>Excellent listening, negotiation and presentation skills</li>
+                    <li>Ability to work independently, remote and in a team</li>
+                    <li>Writing and speaking German and English language, more is better</li>
+                </ul>
+
+                <p class="section--paragraph__tittle">What we offer:</p>
+
+                <ul>
+                    <li>A distributed, open team with a passion for working on and within the open source community</li>
+                    <li>Promoting and selling a product which pushes the boundaries of technology and with a global user and contributor community</li>
+                    <li>A competitive salary</li>
+                    <li>Flexibility for a healthy work-life balance</li>
+                    <li>Time for personal growth and education</li>
+                </ul>
+
+                <p>We are looking for somebody with ambition and drive, who would like to grow and learn. That means if you do not yet fulfill the requirements but want to learn, apply! Contact us at <a href="mailto:jobs@nextcloud.com">jobs@nextcloud.com</a> with your resume if you are interested in this role.</p>
+                <p>We would especially want to encourage under represented candidates to apply to help us built a diverse and strong sales team!</p>
             </div>
 
             <a href="#saleseng" data-toggle="collapse"><h3 class="jobs">Sales Engineer/ Consultant<span class="icon-arrow"></span></h3></a>
